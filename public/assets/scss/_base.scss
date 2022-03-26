@@ -40,6 +40,17 @@ body {
     // padding: 0 1rem;
 
     flex: 1;
+
+    .main-wrapper {
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+
+            .sidebar {
+                width: 100%;
+                order: 2;
+            }
+        }
+    }
 }
 .container {
     max-width: 150rem;

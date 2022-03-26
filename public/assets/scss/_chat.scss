@@ -36,7 +36,9 @@
             flex-direction: column;
             height: 100%;
         }
-
+        .chat-messages {
+            min-height: calc(100vh - (var(--header-height) + 4rem));
+        }
         .messages_list {
             list-style-type: none;
             max-height: calc(100vh - (var(--header-height) + 4rem));
@@ -49,7 +51,7 @@
                 // &:not(:last-child) {
                 //     margin-bottom: 0.5rem;
                 // }
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
             }
             .message {
                 display: flex;

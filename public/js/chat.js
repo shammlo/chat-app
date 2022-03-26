@@ -62,9 +62,10 @@ socket.on('message', (message) => {
 // ----------------------------------------------------------------
 // **** LOCATION TEMPLATE ****
 
-socket.on('server-message-url', ({ text: { url, text, geolocation }, createdAt }) => {
+socket.on('server-message-url', ({ text: { url, text, geolocation }, createdAt, username }) => {
     addMessage(
         {
+            username,
             url,
             text,
             geolocation,
@@ -128,6 +129,7 @@ geoButton.addEventListener('click', (e) => {
                 text: 'This is my current location',
                 geolocation: true,
                 createdAt: moment(new Date().getTime()).format('h:mm a'),
+                username,
             },
             true
         );
@@ -163,6 +165,7 @@ const addMessage = (data, isSelf = false) => {
     if (isSelf) {
         if (data.geolocation) {
             html = Mustache.render(locationTemplate, {
+                username: data.username,
                 url: data.url,
                 text: data.text,
                 time: data.createdAt,
@@ -177,6 +180,7 @@ const addMessage = (data, isSelf = false) => {
     } else {
         if (data.geolocation) {
             html = Mustache.render(locationTemplateServer, {
+                username: data.username,
                 url: data.url,
                 text: data.text,
                 time: data.createdAt,
