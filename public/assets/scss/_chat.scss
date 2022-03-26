@@ -1,0 +1,74 @@
+.app .main {
+    .chat {
+        position: relative;
+        height: 100%;
+        &_form {
+            background: var(--bg-c-secondary-dark);
+            padding: 0.25rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
+
+            display: flex;
+            align-items: center;
+            height: var(--chat-input-height);
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+            width: 100%;
+
+            & > button {
+                border: none;
+                padding: 1.2rem 1.5rem;
+
+                border-radius: 3px;
+                outline: none;
+                color: #fff;
+                cursor: pointer;
+
+                &:disabled {
+                    background: rgb(75, 75, 75);
+                    cursor: not-allowed;
+                    // color: #333;
+                }
+            }
+        }
+        &_wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .messages_list {
+            list-style-type: none;
+            max-height: calc(100vh - (var(--header-height) + 4rem));
+            flex: 1;
+            // height: calc(100% - var(--chat-input-height));
+            overflow-y: auto;
+            background-color: var(--bg-c-secondary);
+
+            & > div {
+                // &:not(:last-child) {
+                //     margin-bottom: 0.5rem;
+                // }
+                margin-bottom: 0.5rem;
+            }
+            .message {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                border-radius: 18px;
+                white-space: pre-wrap;
+                &_text {
+                    font-size: 18px;
+                }
+
+                a.message_text:hover {
+                    text-decoration: underline;
+                }
+            }
+            // & > li:nth-child(odd) {
+            //     background: #efefef;
+            // }
+        }
+    }
+}
